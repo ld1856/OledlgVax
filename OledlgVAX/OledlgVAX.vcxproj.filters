@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{dfd097e1-cfa9-4b56-90f9-fce1e0163236}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\gmp">
+      <UniqueIdentifier>{1c30a41a-4ae8-4bdb-8019-112779e83ea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\hooker">
+      <UniqueIdentifier>{d491dc46-07d5-4450-a50d-fefd3f471400}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\hooker\hde">
+      <UniqueIdentifier>{8e5e0625-a6cc-470d-b8ca-fa63a3b1643d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OledlgVAX.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Hasher.hpp">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\HasherCrc32Traits.hpp">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\HasherMd5Traits.hpp">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\VisualAssistCryptoConfig.hpp">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\VisualAssistFieldTraits.hpp">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\VisualAssistRandomGenerator.hpp">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\xstring.hpp">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\BigInteger.hpp">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\EllipticCurveGF2m.hpp">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\GaloisField.hpp">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="VisualAssistKeygen.hpp">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\gmp\mini-gmp.h">
+      <Filter>Common\gmp</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\gmp\mini-mpq.h">
+      <Filter>Common\gmp</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\hooker\hde\pstdint.h">
+      <Filter>Common\hooker</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\hooker\hde\table32.h">
+      <Filter>Common\hooker</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\hooker\hde\table64.h">
+      <Filter>Common\hooker</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\hooker\buffer.h">
+      <Filter>Common\hooker</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\hooker\trampoline.h">
+      <Filter>Common\hooker</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\hooker\hde\hde64.h">
+      <Filter>Common\hooker\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\hooker\hde\hde32.h">
+      <Filter>Common\hooker\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\hooker\MinHook.h">
+      <Filter>Common\hooker</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OledlgVAX.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\gmp\mini-gmp.c">
+      <Filter>Common\gmp</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\gmp\mini-mpq.c">
+      <Filter>Common\gmp</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\hooker\buffer.c">
+      <Filter>Common\hooker</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\hooker\hook.c">
+      <Filter>Common\hooker</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\hooker\trampoline.c">
+      <Filter>Common\hooker</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\hooker\hde\hde64.c">
+      <Filter>Common\hooker\hde</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\hooker\hde\hde32.c">
+      <Filter>Common\hooker\hde</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
