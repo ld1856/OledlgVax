@@ -4,7 +4,7 @@ supported x64 and win32.
 
 patch base on [OLEDLG-for-Visual-Assist-X](https://github.com/lvtx/OLEDLG-for-Visual-Assist-X.git)
 
-keygen fork on [VisualAssist-keygen-demo](https://github.com/DoubleLabyrinth/VisualAssist-keygen-demo.git)
+keygen fork from [VisualAssist-keygen-demo](https://github.com/DoubleLabyrinth/VisualAssist-keygen-demo.git)
 
 using:
 1. rundll32.exe oledlgvax.dll,GenerateKey -renew *[UserName] 255[Count] 2099/12/12[Expire date]
