@@ -1,4 +1,4 @@
-// dllmain.cpp : 定义 DLL 应用程序的入口点。
+// dllmain.cpp : 锟斤拷锟斤拷 DLL 应锟矫筹拷锟斤拷锟斤拷锟节点。
 #include "stdafx.h"
 #include "OledlgVAX.h"
 

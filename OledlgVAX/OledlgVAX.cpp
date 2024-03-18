@@ -1,4 +1,4 @@
-// OledlgVAX.cpp : ¶¨Òå DLL Ó¦ÓÃ³ÌÐòµÄµ¼³öº¯Êý¡£
+// OledlgVAX.cpp : ï¿½ï¿½ï¿½ï¿½ DLL Ó¦ï¿½Ã³ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -23,33 +23,102 @@ const char* cPublicKeyX = "2127088620,2558213661223504372788100802238141,2694097
 const char* cPublicKeyY = "2127088620,8809976404932220599325753072055172,1929719295914332726580392022338415";
 
 #ifdef _WIN64
-#pragma comment(linker,"/EXPORT:__CxxFrameHandler4=vcruntime140_1r.__CxxFrameHandler4")
-#pragma comment(linker,"/EXPORT:__NLG_Dispatch2=vcruntime140_1r.__NLG_Dispatch2")
-#pragma comment(linker,"/EXPORT:__NLG_Return2=vcruntime140_1r.__NLG_Return2")
+#define HIJACKED_DLL_NAME "msenv_r"    //<--- modify
+
+/* gcc does't support this. */
+#pragma comment(linker, "/EXPORT:DllCanUnloadNow=" HIJACKED_DLL_NAME ".#1,@1")
+#pragma comment(linker, "/EXPORT:DllGetClassObject=" HIJACKED_DLL_NAME ".#2,@2")
+#pragma comment(linker, "/EXPORT:DllMain=" HIJACKED_DLL_NAME ".#3,@3")
+#pragma comment(linker, "/EXPORT:IsSystemFontAvailable=" HIJACKED_DLL_NAME ".#4,@4")
+#pragma comment(linker, "/EXPORT:VStudioComposeMEF=" HIJACKED_DLL_NAME ".#5,@5")
+#pragma comment(linker, "/EXPORT:VStudioMain=" HIJACKED_DLL_NAME ".#6,@6")
+#pragma comment(linker, "/EXPORT:VStudioTerm=" HIJACKED_DLL_NAME ".#7,@7")
+#pragma comment(linker, "/EXPORT:VStudioValidateCmds=" HIJACKED_DLL_NAME ".#8,@8")
 #else
-#pragma comment(linker,"/EXPORT:OleUIAddVerbMenuA=Oledlg_r.OleUIAddVerbMenuA")
-#pragma comment(linker,"/EXPORT:OleUICanConvertOrActivateAs=Oledlg_r.OleUICanConvertOrActivateAs")
-#pragma comment(linker,"/EXPORT:OleUIInsertObjectA=Oledlg_r.OleUIInsertObjectA")
-#pragma comment(linker,"/EXPORT:OleUIPasteSpecialA=Oledlg_r.OleUIPasteSpecialA")
-#pragma comment(linker,"/EXPORT:OleUIEditLinksA=Oledlg_r.OleUIEditLinksA")
-#pragma comment(linker,"/EXPORT:OleUIChangeIconA=Oledlg_r.OleUIChangeIconA")
-#pragma comment(linker,"/EXPORT:OleUIConvertA=Oledlg_r.OleUIConvertA")
-#pragma comment(linker,"/EXPORT:OleUIBusyA=Oledlg_r.OleUIBusyA")
-#pragma comment(linker,"/EXPORT:OleUIUpdateLinksA=Oledlg_r.OleUIUpdateLinksA")
-#pragma comment(linker,"/EXPORT:OleUIPromptUserA=Oledlg_r.OleUIPromptUserA")
-#pragma comment(linker,"/EXPORT:OleUIObjectPropertiesA=Oledlg_r.OleUIObjectPropertiesA")
-#pragma comment(linker,"/EXPORT:OleUIChangeSourceA=Oledlg_r.OleUIChangeSourceA")
-#pragma comment(linker,"/EXPORT:OleUIAddVerbMenuW=Oledlg_r.OleUIAddVerbMenuW")
-#pragma comment(linker,"/EXPORT:OleUIBusyW=Oledlg_r.OleUIBusyW")
-#pragma comment(linker,"/EXPORT:OleUIChangeIconW=Oledlg_r.OleUIChangeIconW")
-#pragma comment(linker,"/EXPORT:OleUIChangeSourceW=Oledlg_r.OleUIChangeSourceW")
-#pragma comment(linker,"/EXPORT:OleUIConvertW=Oledlg_r.OleUIConvertW")
-#pragma comment(linker,"/EXPORT:OleUIEditLinksW=Oledlg_r.OleUIEditLinksW")
-#pragma comment(linker,"/EXPORT:OleUIInsertObjectW=Oledlg_r.OleUIInsertObjectW")
-#pragma comment(linker,"/EXPORT:OleUIObjectPropertiesW=Oledlg_r.OleUIObjectPropertiesW")
-#pragma comment(linker,"/EXPORT:OleUIPasteSpecialW=Oledlg_r.OleUIPasteSpecialW")
-#pragma comment(linker,"/EXPORT:OleUIPromptUserW=Oledlg_r.OleUIPromptUserW")
-#pragma comment(linker,"/EXPORT:OleUIUpdateLinksW=Oledlg_r.OleUIUpdateLinksW")
+#define HIJACKED_DLL_NAME "vcruntime140_r"    //<--- modify
+
+/* gcc does't support this. */
+#pragma comment(linker, "/EXPORT:__CreateFrameInfo=" HIJACKED_DLL_NAME ".#1,@1")
+#pragma comment(linker, "/EXPORT:__CxxThrowException=" HIJACKED_DLL_NAME ".#2,@2")
+#pragma comment(linker, "/EXPORT:__EH_prolog=" HIJACKED_DLL_NAME ".#3,@3")
+#pragma comment(linker, "/EXPORT:__FindAndUnlinkFrame=" HIJACKED_DLL_NAME ".#4,@4")
+#pragma comment(linker, "/EXPORT:__IsExceptionObjectToBeDestroyed=" HIJACKED_DLL_NAME ".#5,@5")
+#pragma comment(linker, "/EXPORT:__NLG_Dispatch2=" HIJACKED_DLL_NAME ".#6,@6")
+#pragma comment(linker, "/EXPORT:__NLG_Return=" HIJACKED_DLL_NAME ".#7,@7")
+#pragma comment(linker, "/EXPORT:__NLG_Return2=" HIJACKED_DLL_NAME ".#8,@8")
+#pragma comment(linker, "/EXPORT:__SetWinRTOutOfMemoryExceptionCallback=" HIJACKED_DLL_NAME ".#9,@9")
+#pragma comment(linker, "/EXPORT:___AdjustPointer=" HIJACKED_DLL_NAME ".#10,@10")
+#pragma comment(linker, "/EXPORT:___BuildCatchObject=" HIJACKED_DLL_NAME ".#11,@11")
+#pragma comment(linker, "/EXPORT:___BuildCatchObjectHelper=" HIJACKED_DLL_NAME ".#12,@12")
+#pragma comment(linker, "/EXPORT:___CxxDetectRethrow=" HIJACKED_DLL_NAME ".#13,@13")
+#pragma comment(linker, "/EXPORT:___CxxExceptionFilter=" HIJACKED_DLL_NAME ".#14,@14")
+#pragma comment(linker, "/EXPORT:___CxxFrameHandler=" HIJACKED_DLL_NAME ".#15,@15")
+#pragma comment(linker, "/EXPORT:___CxxFrameHandler2=" HIJACKED_DLL_NAME ".#16,@16")
+#pragma comment(linker, "/EXPORT:___CxxFrameHandler3=" HIJACKED_DLL_NAME ".#17,@17")
+#pragma comment(linker, "/EXPORT:___CxxLongjmpUnwind=" HIJACKED_DLL_NAME ".#18,@18")
+#pragma comment(linker, "/EXPORT:___CxxQueryExceptionSize=" HIJACKED_DLL_NAME ".#19,@19")
+#pragma comment(linker, "/EXPORT:___CxxRegisterExceptionObject=" HIJACKED_DLL_NAME ".#20,@20")
+#pragma comment(linker, "/EXPORT:___CxxUnregisterExceptionObject=" HIJACKED_DLL_NAME ".#21,@21")
+#pragma comment(linker, "/EXPORT:___DestructExceptionObject=" HIJACKED_DLL_NAME ".#22,@22")
+#pragma comment(linker, "/EXPORT:___FrameUnwindFilter=" HIJACKED_DLL_NAME ".#23,@23")
+#pragma comment(linker, "/EXPORT:___GetPlatformExceptionInfo=" HIJACKED_DLL_NAME ".#24,@24")
+#pragma comment(linker, "/EXPORT:___RTCastToVoid=" HIJACKED_DLL_NAME ".#25,@25")
+#pragma comment(linker, "/EXPORT:___RTDynamicCast=" HIJACKED_DLL_NAME ".#26,@26")
+#pragma comment(linker, "/EXPORT:___RTtypeid=" HIJACKED_DLL_NAME ".#27,@27")
+#pragma comment(linker, "/EXPORT:___TypeMatch=" HIJACKED_DLL_NAME ".#28,@28")
+#pragma comment(linker, "/EXPORT:___current_exception=" HIJACKED_DLL_NAME ".#29,@29")
+#pragma comment(linker, "/EXPORT:___current_exception_context=" HIJACKED_DLL_NAME ".#30,@30")
+#pragma comment(linker, "/EXPORT:___intrinsic_setjmp=" HIJACKED_DLL_NAME ".#31,@31")
+#pragma comment(linker, "/EXPORT:___processing_throw=" HIJACKED_DLL_NAME ".#32,@32")
+#pragma comment(linker, "/EXPORT:___report_gsfailure=" HIJACKED_DLL_NAME ".#33,@33")
+#pragma comment(linker, "/EXPORT:___std_exception_copy=" HIJACKED_DLL_NAME ".#34,@34")
+#pragma comment(linker, "/EXPORT:___std_exception_destroy=" HIJACKED_DLL_NAME ".#35,@35")
+#pragma comment(linker, "/EXPORT:___std_terminate=" HIJACKED_DLL_NAME ".#36,@36")
+#pragma comment(linker, "/EXPORT:___std_type_info_compare=" HIJACKED_DLL_NAME ".#37,@37")
+#pragma comment(linker, "/EXPORT:___std_type_info_destroy_list=" HIJACKED_DLL_NAME ".#38,@38")
+#pragma comment(linker, "/EXPORT:___std_type_info_hash=" HIJACKED_DLL_NAME ".#39,@39")
+#pragma comment(linker, "/EXPORT:___std_type_info_name=" HIJACKED_DLL_NAME ".#40,@40")
+#pragma comment(linker, "/EXPORT:___telemetry_main_invoke_trigger=" HIJACKED_DLL_NAME ".#41,@41")
+#pragma comment(linker, "/EXPORT:___telemetry_main_return_trigger=" HIJACKED_DLL_NAME ".#42,@42")
+#pragma comment(linker, "/EXPORT:___unDName=" HIJACKED_DLL_NAME ".#43,@43")
+#pragma comment(linker, "/EXPORT:___unDNameEx=" HIJACKED_DLL_NAME ".#44,@44")
+#pragma comment(linker, "/EXPORT:___uncaught_exception=" HIJACKED_DLL_NAME ".#45,@45")
+#pragma comment(linker, "/EXPORT:___uncaught_exceptions=" HIJACKED_DLL_NAME ".#46,@46")
+#pragma comment(linker, "/EXPORT:___vcrt_GetModuleFileNameW=" HIJACKED_DLL_NAME ".#47,@47")
+#pragma comment(linker, "/EXPORT:___vcrt_GetModuleHandleW=" HIJACKED_DLL_NAME ".#48,@48")
+#pragma comment(linker, "/EXPORT:___vcrt_InitializeCriticalSectionEx=" HIJACKED_DLL_NAME ".#49,@49")
+#pragma comment(linker, "/EXPORT:___vcrt_LoadLibraryExW=" HIJACKED_DLL_NAME ".#50,@50")
+#pragma comment(linker, "/EXPORT:__chkesp=" HIJACKED_DLL_NAME ".#51,@51")
+#pragma comment(linker, "/EXPORT:__except_handler2=" HIJACKED_DLL_NAME ".#52,@52")
+#pragma comment(linker, "/EXPORT:__except_handler3=" HIJACKED_DLL_NAME ".#53,@53")
+#pragma comment(linker, "/EXPORT:__except_handler4_common=" HIJACKED_DLL_NAME ".#54,@54")
+#pragma comment(linker, "/EXPORT:__get_purecall_handler=" HIJACKED_DLL_NAME ".#55,@55")
+#pragma comment(linker, "/EXPORT:__get_unexpected=" HIJACKED_DLL_NAME ".#56,@56")
+#pragma comment(linker, "/EXPORT:__global_unwind2=" HIJACKED_DLL_NAME ".#57,@57")
+#pragma comment(linker, "/EXPORT:__is_exception_typeof=" HIJACKED_DLL_NAME ".#58,@58")
+#pragma comment(linker, "/EXPORT:__local_unwind2=" HIJACKED_DLL_NAME ".#59,@59")
+#pragma comment(linker, "/EXPORT:__local_unwind4=" HIJACKED_DLL_NAME ".#60,@60")
+#pragma comment(linker, "/EXPORT:__longjmpex=" HIJACKED_DLL_NAME ".#61,@61")
+#pragma comment(linker, "/EXPORT:__purecall=" HIJACKED_DLL_NAME ".#62,@62")
+#pragma comment(linker, "/EXPORT:__seh_longjmp_unwind=" HIJACKED_DLL_NAME ".#64,@64")
+#pragma comment(linker, "/EXPORT:__seh_longjmp_unwind4=" HIJACKED_DLL_NAME ".#63,@63")
+#pragma comment(linker, "/EXPORT:__set_purecall_handler=" HIJACKED_DLL_NAME ".#65,@65")
+#pragma comment(linker, "/EXPORT:__set_se_translator=" HIJACKED_DLL_NAME ".#66,@66")
+#pragma comment(linker, "/EXPORT:__setjmp3=" HIJACKED_DLL_NAME ".#67,@67")
+#pragma comment(linker, "/EXPORT:longjmp=" HIJACKED_DLL_NAME ".#68,@68")
+#pragma comment(linker, "/EXPORT:memchr=" HIJACKED_DLL_NAME ".#69,@69")
+#pragma comment(linker, "/EXPORT:memcmp=" HIJACKED_DLL_NAME ".#70,@70")
+#pragma comment(linker, "/EXPORT:memcpy=" HIJACKED_DLL_NAME ".#71,@71")
+#pragma comment(linker, "/EXPORT:memmove=" HIJACKED_DLL_NAME ".#72,@72")
+#pragma comment(linker, "/EXPORT:memset=" HIJACKED_DLL_NAME ".#73,@73")
+#pragma comment(linker, "/EXPORT:set_unexpected=" HIJACKED_DLL_NAME ".#74,@74")
+#pragma comment(linker, "/EXPORT:strchr=" HIJACKED_DLL_NAME ".#75,@75")
+#pragma comment(linker, "/EXPORT:strrchr=" HIJACKED_DLL_NAME ".#76,@76")
+#pragma comment(linker, "/EXPORT:strstr=" HIJACKED_DLL_NAME ".#77,@77")
+#pragma comment(linker, "/EXPORT:unexpected=" HIJACKED_DLL_NAME ".#78,@78")
+#pragma comment(linker, "/EXPORT:wcschr=" HIJACKED_DLL_NAME ".#79,@79")
+#pragma comment(linker, "/EXPORT:wcsrchr=" HIJACKED_DLL_NAME ".#80,@80")
+#pragma comment(linker, "/EXPORT:wcsstr=" HIJACKED_DLL_NAME ".#81,@81")
 #endif
 
 
@@ -165,6 +234,7 @@ BOOL WINAPI fHeapFree(__inout HANDLE hHeap, __in DWORD dwFlags, __drv_freesMem(M
 
 VOID WINAPI Entry(HMODULE hModule)
 {
+    //MessageBoxA(NULL, "test", "test", 0);
 	do 
 	{
         InitializeCriticalSection(&G_CS);
@@ -309,7 +379,8 @@ extern "C" __declspec(dllexport) VOID WINAPI GenerateKey(HWND hwnd, HINSTANCE hi
 
                 _tprintf_s(TEXT("%hs\n"), Info.KeyName.c_str());
                 _tprintf_s(TEXT("%hs\n"), Info.KeyCode.c_str());
-
+                //system("pause");
+                Sleep(10);
             }
             else
             {
